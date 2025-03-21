@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString(exclude = "material")
+//@ToString(exclude = "material")
 public class Course {
 
     @SequenceGenerator(
@@ -27,7 +27,7 @@ public class Course {
 
     @OneToOne(
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.EAGER
 
     )
     @JoinColumn(

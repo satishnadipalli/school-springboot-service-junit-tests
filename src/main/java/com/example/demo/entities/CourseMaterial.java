@@ -1,16 +1,13 @@
 package com.example.demo.entities;
-
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+// @ToString(exclude = "course")
 public class CourseMaterial {
     @Id
     @SequenceGenerator(
@@ -25,6 +22,9 @@ public class CourseMaterial {
     private Long materialId;
     private String materialName;
     private String materialUrl;
+
+    @OneToOne(mappedBy = "material") //This material is the field name created in the Course Class for this material
+    private Course course;
 
 
 }
